@@ -20,18 +20,22 @@
                 <div class="content">
                     <h2>Generate a Password</h2>
                     <br />
-                    <input type="text" id="display" placeholder="Your Secure Password">
+                    <textarea type="text" id="display" placeholder="Your Secure Password" readonly></textarea>
                     <br />
-                    <button onclick="">Generate Password</button>
-                    <button onclick="">Copy to Clipboard</button>
-                    <div id="length"></div>
-
                 </div>
 
             </div>
 
         </div>
-
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="content">
+                    <button class= "col-lg-3" onclick="updatePassword()" >Generate Password</button>
+                    <button class= "col-lg-5" style="visibility: hidden;"></button>
+                    <button class= "col-lg-3" onclick="copyPassword()">Copy to Clipboard</button>
+                </div>
+            </div>
+        </div>
     </div>
   </body>
 </html>
