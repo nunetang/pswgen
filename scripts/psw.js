@@ -33,22 +33,39 @@ function getValidPswLength(){
     return pswLength;
 }
 
+function getRandomSymbolArray(hasLower, hasUpper, hasNumber, hasSymbol){
+    let symbolArray = [];
+
+    if(hasLower){
+        symbolArray.push(getRandomLower());
+    }
+    
+    if(hasUpper){
+        symbolArray.push(getRandomUpper());
+    }
+
+    if(hasNumber){
+        symbolArray.push(getRandomNumber());
+    }
+
+    if(hasSymbol){
+        symbolArray.push(getRandomSymbol());
+    }
+
+    return symbolArray;
+}
+
 //Generate Random password
 
-function generatePassword(passwordLength){
-
-    //possible password values
-
-    let lower = getRandomLower();
-    let upper = getRandomUpper();
-    let number = getRandomNumber();
-    let symbol = getRandomSymbol();
+function generatePassword(passwordLength, hasLower, hasUpper, hasNumber, hasSymbol){
     
     password ="";
 
     //for loop to choose password characters
-    for( let i = 0; i<=passwordLength; i++){
-        password = password + lower + upper + number + symbol;
+    for( let i = 0; i < passwordLength; i++){
+        let symbolArray = getRandomSymbolArray(hasLower, hasUpper, hasNumber, hasSymbol);
+        let randomSelection = Math.floor(Math.random() * symbolArray.length);
+        password += symbolArray[randomSelection]; 
     }
 
     return password;
@@ -77,7 +94,7 @@ function updatePassword(){
         }
     }
 
-    var password = generatePassword(lengthValue);
+    var password = generatePassword(lengthValue, hasLowerCase, hasUpperCase, hasNumbers, hasSymbols);
     document.getElementById("display").value = password;
 }
 
