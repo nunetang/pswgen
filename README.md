@@ -1,7 +1,7 @@
 # pswgen
 Secure random password generator
 
-<img src="pswgen/images/pswGen.png">
+<img src="images/pswGen.PNG">
 
 ## Description
 
